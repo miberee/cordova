@@ -1,12 +1,373 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cordova Mixología</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CORDOVA | Craft Cocktails & Bar Experiences</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#f6f2eb;
+    --text:#1e1e1e;
+    --accent:#8d6e63;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.7;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:25px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(246,242,235,.95);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:var(--text);
+    font-size:.95rem;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+    url("https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1800&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    max-width:900px;
+    padding:20px;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:6rem;
+    font-weight:400;
+    letter-spacing:4px;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:1.2rem;
+    font-weight:300;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 32px;
+    background:white;
+    color:black;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+section{
+    padding:120px 10%;
+}
+
+.intro{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.intro h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:30px;
+    font-weight:400;
+}
+
+.intro p{
+    font-size:1.15rem;
+}
+
+.services{
+    background:white;
+}
+
+.section-title{
+    text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:60px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    padding:40px;
+    border:1px solid #ddd;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    margin-bottom:15px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:400px;
+    object-fit:cover;
+}
+
+.contact{
+    text-align:center;
+    background:#111;
+    color:white;
+}
+
+.contact h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.contact p{
+    margin-bottom:15px;
+}
+
+.contact a{
+    color:white;
+    text-decoration:none;
+}
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:black;
+    color:#aaa;
+}
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:65px;
+    height:65px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-decoration:none;
+    color:white;
+    font-size:28px;
+    box-shadow:0 5px 20px rgba(0,0,0,.3);
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:3.5rem;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .intro h2,
+    .section-title,
+    .contact h2{
+        font-size:2.2rem;
+    }
+}
+
+</style>
 </head>
+
 <body>
-    <h1>Bienvenido a Cordova</h1>
-    <p>Experiencias de coctelería para eventos inolvidables.</p>
+
+<nav>
+    <div class="logo">CORDOVA</div>
+
+    <ul>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <h1>CORDOVA</h1>
+
+        <p>
+            Craft Cocktails & Bar Experiences
+        </p>
+
+        <a class="btn" href="#contacto">
+            Solicitar Cotización
+        </a>
+
+    </div>
+
+</header>
+
+<section id="nosotros" class="intro">
+
+    <h2>Experiencias que se recuerdan</h2>
+
+    <p>
+        En Cordova diseñamos experiencias de mixología para bodas,
+        eventos corporativos y celebraciones privadas.
+        Nuestra pasión es transformar cada evento en un momento memorable
+        a través de cócteles de autor, servicio premium y una propuesta visual elegante.
+    </p>
+
+</section>
+
+<section id="servicios" class="services">
+
+    <h2 class="section-title">Servicios</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Bodas</h3>
+            <p>
+                Barras premium diseñadas para complementar el estilo y la esencia de tu celebración.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Corporativos</h3>
+            <p>
+                Experiencias de coctelería para eventos empresariales, lanzamientos y networking.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Cocteles de Autor</h3>
+            <p>
+                Creaciones exclusivas inspiradas en la identidad de cada cliente y evento.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="galeria">
+
+    <h2 class="section-title">Galería</h2>
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?q=80&w=1200&auto=format&fit=crop">
+
+        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop">
+
+    </div>
+
+</section>
+
+<section id="contacto" class="contact">
+
+    <h2>Contacto</h2>
+
+    <p>Solicita una cotización para tu próximo evento.</p>
+
+    <p>
+        WhatsApp: +52 000 000 0000
+    </p>
+
+    <p>
+        Instagram: @cordova.mx
+    </p>
+
+    <p>
+        Correo: contacto@cordova.mx
+    </p>
+
+</section>
+
+<footer>
+
+    © 2026 Cordova · Craft Cocktails & Bar Experiences
+
+</footer>
+
+<a
+class="whatsapp"
+href="https://wa.me/520000000000"
+target="_blank">
+✆
+</a>
+
 </body>
 </html>
